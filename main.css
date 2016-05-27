@@ -26,14 +26,20 @@ h2 {
     
 }
 
+h3 {
+  padding-left: 30em;
+}
+
 div#voronoiToolbar {
-  padding-left: 5em;
+  padding-left: 30em;
+  padding-top: 2em;
 }
 
 div#infoSection.col-md-6 {
-  padding-top: 2em;
+  padding-top: 3em;
   width: 40%;
   font-size: 120%;
+
 }
 
 header {
