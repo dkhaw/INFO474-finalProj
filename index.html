@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KNN Explained</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://students.washington.edu/kinders/i474/voronoi/voronoi.js"></script>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="client.js"></script>
+    <script src="simpleknn.js"></script>
+  </head>
+  <body>
+        <header>
+      <div class="VisualIntro">
+              <h1>A Visual Introduction to Machine Learning </h1>
+              <h2>Introduction for the diagrams below... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h2>
+            </div>
+    </header>
+    <section id="InfoAndGraph">
+      <div class="container">
+      <div class="row">
+          <div id="infoSection" class= "col-md-6">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+          <h2>Voronio Diagram</h2>
+          <div id="voronoiDiagram" class="col-md-6"></div>
+          <div id="voronoiToolbar">
+              <span>Circle Size: </span>
+            <div id="circleSizeSlider"></div>
+              <span>Number of observations: </span>
+            <div id="numPointsSlider"></div>
+              <button id="voronoiReshuffle">Reshuffle</button>
+            </div>
+            <h2>KNN</h2>
+            <div id="knnDiagram"></div>
+          </div>
+     </section>
+  </body>
+</html>

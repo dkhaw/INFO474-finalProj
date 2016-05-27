@@ -1,0 +1,97 @@
+
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300);
+@import url(https://fonts.googleapis.com/css?family=Lato:300italic,300,400);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+
+body {
+    font-family: Lato, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    background-color: #E9EAEE;
+}
+
+h1, h2 {
+    font-family: Raleway, "Helvetica Neue", Helvetica, sans-serif;
+    text-align: center;
+}
+
+
+h2 { 
+    color: #BC6026;
+    padding-top: 1em;
+    font-size: 100%;
+    padding-left: 20em;
+    padding-right: 20em;
+    
+}
+
+div#voronoiToolbar {
+  padding-left: 5em;
+}
+
+div#infoSection.col-md-6 {
+  padding-top: 2em;
+  width: 40%;
+  font-size: 120%;
+}
+
+header {
+  padding-top: 1em;
+  text-align: center;
+
+}
+
+.point {
+	  fill: #999;
+	  stroke: #fff;
+}
+
+.point.scanned {
+  fill: orange;
+  fill-opacity: 1;
+  stroke: brown;
+}
+
+.point.selected {
+  fill: red;
+  fill-opacity: 1;
+}
+
+.node {
+  fill: none;
+  stroke: #ccc;
+  shape-rendering: crispEdges;
+}
+  
+.brush .extent {
+  stroke: #fff;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
+
+path {
+  stroke: #fff;
+}
+
+path:first-child {
+  fill: yellow !important;
+}
+
+circle {
+  fill: #000;
+  pointer-events: none;
+}
+
+#circleSizeSlider, #numPointsSlider {
+  width: 150px;
+}
+
+#voronoiToolbar > span {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#voronoiToolbar {
+  display: flex;
+}
