@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>KNN Explained</title>
+    <title>A Visual Introduction to K-Nearest Neighbors</title>
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -17,25 +17,18 @@
   <body>
         <header>
       <div class="VisualIntro">
-              <h1>A Visual Introduction to Machine Learning </h1>
-              <h2>Introduction for the diagrams below... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h2>
+              <h1>A Visual Introduction to K-Nearest Neighbors</h1>
+              <h2>K-Nearest Neighbors (K-NN) is an algorithm used to classify data based on its 'nearest', or most similar, counterparts. In this interactive tutorial, we walk you through the basics of K-NN and demonstrate the logic behind it.</h2>
             </div>
     </header>
     <section id="InfoAndGraph">
       <div class="container">
       <div class="row">
           <div id="infoSection" class= "col-md-6">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Let's start with something simple. The graph on the right contains two data points. These points can be classified based on color: pink and green. The green and pink shaded regions of the graph depict the areas where new points will be closer to the pink and green data points, respectively. If we wanted to classify a new data point, we would see if it falls in the pink or green area and classify it based on that.<br />
+            Now, let's say we have a third data point that is classified as yellow. We will define this new point with our cursor. When we move our yellow data point around the graph, the shaded regions shift to reflect the new location of this third point. If we were to now try to classify a new data point, we would do it based on these three shaded regions instead.<br />
           </div>
-          <h3>Voronio Diagram</h3>
+          <h3>Nearest Neighbor</h3>
           <div id="voronoiDiagram" class="col-md-6"></div>
           <div id="voronoiToolbar">
               <span>Circle Size: </span>
@@ -49,12 +42,8 @@
         <div class="container">
         <div class="row">
           <div id="infoSection" class="col-md-6">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Time to kick it up a notch. In this previous section, we classified our data based on a single nearest neighbor data point. Now, we are going to expand on this and classify new data points based on k-nearest neighbors, where k is equal to the number of data points used for the classification. We'll start with k value of 3. <br />
+            We have a new point in our data set that we want to classify. First, we locate the three data points that are closest to this new point. We then take a vote from these nearest neighbors to determine which class our new data point will fall in. In this case, two of the neighbors are orange and one is yellow. 2 > 1, thus, we will classify our new point as orange.
           </div>
           <h3>K Nearest Neighbors</h3>
           <div id="knnDiagram" class="col-md-6"></div>
