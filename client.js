@@ -52,40 +52,38 @@
         });
 
         //Slider for circle size (https://jqueryui.com/slider/)
-        // $(function() {
-        //     $("#circleSizeSlider").slider({
-        //         min: 2,
-        //         max: 20,
-        //         change: function(event, ui) {
-        //             myChart.circleSize($(this).slider('values', 0));
-        //             chartWrapper.datum(vertices).call(myChart);
-        //         }
-        //     });
-        // });
+        $(function() {
+            $("#circleSizeSlider").slider({
+                min: 2,
+                max: 20,
+                change: function(event, ui) {
+                    myChart.circleSize($(this).slider('values', 0));
+                    chartWrapper.datum(vertices).call(myChart);
+                }
+            });
+        });
 
-        // //Slider for number of points (https://jqueryui.com/slider/)
-        // $(function() {
-        //     $("#numPointsSlider").slider({
-        //         min: 3,
-        //         max: 30,
-        //         change: function(event, ui) {
-        //             num = $(this).slider('values', 0)
-        //             vertices = d3.range(num).map(function(d) {
-        //                 return [Math.random() * width, Math.random() * height];
-        //             });
-        //             // if ($(this).slider('values', 0) > 8) {
-        //             //     myChart.rectColor(allColors);
-        //             // } else if ($(this).slider('values', 0) > 8) {
-        //             // } else {
-        //             //     myChart.rectColor(allColors);
-        //             // }
-        //             chartWrapper.datum(vertices).call(myChart);
-        //         }
-        //     });
-        // });
+        //Slider for number of points (https://jqueryui.com/slider/)
+        $(function() {
+            $("#numPointsSlider").slider({
+                min: 3,
+                max: 30,
+                change: function(event, ui) {
+                    num = $(this).slider('values', 0)
+                    vertices = d3.range(num).map(function(d) {
+                        return [Math.random() * width, Math.random() * height];
+                    });
+                    // if ($(this).slider('values', 0) > :sunglasses: {
+                    //     myChart.rectColor(allColors);
+                    // } else if ($(this).slider('values', 0) > :sunglasses: {
+                    // } else {
+                    //     myChart.rectColor(allColors);
+                    // }
+                    chartWrapper.datum(vertices).call(myChart);
+                }
+            });
+        });
 
-
-        //END VORONOI INITIALIZAION
 
         var width = 700;
         var height = 400;
