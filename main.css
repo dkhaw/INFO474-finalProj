@@ -34,7 +34,7 @@ div.row {
   padding-bottom: 2em;
 }
 
-div#voronoiToolbar {
+div#toolbar {
   padding-left: 30em;
   padding-top: 2em;
 }
@@ -61,8 +61,8 @@ header {
 }
 
 .point {
-	  fill: #999;
-	  stroke: #fff;
+    fill: #999;
+    stroke: #fff;
 }
 
 .point.scanned {
@@ -101,15 +101,19 @@ circle {
   pointer-events: none;
 }
 
-#circleSizeSlider, #numPointsSlider {
+#voronoiCircleSizeSlider, #voronoiNumPointsSlider {
   width: 150px;
 }
 
-#voronoiToolbar > span {
+#knnCircleSizeSlider, #knnNumPointsSlider, #knnKSlider {
+  width: 75px;
+}
+
+#toolbar > span {
   padding-left: 10px;
   padding-right: 10px;
 }
 
-#voronoiToolbar {
+#toolbar {
   display: flex;
 }

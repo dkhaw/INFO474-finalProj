@@ -37,35 +37,34 @@
             return [Math.random() * width, Math.random() * height];
         });
 
-        myChart = Voronoi().width(width).height(height).rectColor(allColors).rectOpacity(0.5).circleSize(4);
+        voronoiChart = Voronoi().width(width).height(height).rectColor(allColors).rectOpacity(0.5).circleSize(4);
         //.rectColor(['rgb(255,255,0)', 'rgb(0,255,0)']).rectOpacity(0.7);
-        var chartWrapper = d3.select("#voronoiDiagram")
+        var voronoiWrapper = d3.select("#voronoiDiagram")
               .datum(vertices)
-              .call(myChart);
+              .call(voronoiChart);
 
         $("#voronoiReshuffle").on("click", function() {
             vertices = d3.range(num).map(function(d) {
                 return [Math.random() * width, Math.random() * height];
             });
-            //myChart.width(width).rectColor(colors).rectOpacity(0.3).circleSize(50);
-            chartWrapper.datum(vertices).call(myChart);
+            voronoiWrapper.datum(vertices).call(voronoiChart);
         });
 
         //Slider for circle size (https://jqueryui.com/slider/)
         $(function() {
-            $("#circleSizeSlider").slider({
+            $("#voronoiCircleSizeSlider").slider({
                 min: 2,
                 max: 20,
                 change: function(event, ui) {
-                    myChart.circleSize($(this).slider('values', 0));
-                    chartWrapper.datum(vertices).call(myChart);
+                    voronoiChart.circleSize($(this).slider('values', 0));
+                    voronoiWrapper.datum(vertices).call(voronoiChart);
                 }
             });
         });
 
         //Slider for number of points (https://jqueryui.com/slider/)
         $(function() {
-            $("#numPointsSlider").slider({
+            $("#voronoiNumPointsSlider").slider({
                 min: 3,
                 max: 30,
                 change: function(event, ui) {
@@ -73,30 +72,77 @@
                     vertices = d3.range(num).map(function(d) {
                         return [Math.random() * width, Math.random() * height];
                     });
-                    // if ($(this).slider('values', 0) > :sunglasses: {
-                    //     myChart.rectColor(allColors);
-                    // } else if ($(this).slider('values', 0) > :sunglasses: {
-                    // } else {
-                    //     myChart.rectColor(allColors);
-                    // }
-                    chartWrapper.datum(vertices).call(myChart);
+                    voronoiWrapper.datum(vertices).call(voronoiChart);
                 }
             });
         });
 
 
+        //END VORONOI INITIALIZAION
+
+        //KNN INITIALIZATION
         var width = 700;
         var height = 400;
-        var num = 100;
+        var num = 3;
+        var k = 1;
         var points = d3.range(num).map(function(d) {
             return [Math.random() * width, Math.random() * height];
         });
 
-        myKnn = knn().width(width).height(height);
-        //.rectColor(['rgb(255,255,0)', 'rgb(0,255,0)']).rectOpacity(0.7);
-        var chartWrapper = d3.select("#knnDiagram")
+        knnChart = knn().width(width).height(height).k(k);
+        var knnWrapper = d3.select("#knnDiagram")
               .datum(points)
-              .call(myKnn);
+              .call(knnChart);
+
+        $("#knnReshuffle").on("click", function() {
+            points = d3.range(num).map(function(d) {
+                return [Math.random() * width, Math.random() * height];
+            });
+            knnWrapper.datum(points).call(knnChart);
+        });
+
+        //Slider for circle size (https://jqueryui.com/slider/)
+        $(function() {
+            $("#knnCircleSizeSlider").slider({
+                min: 2,
+                max: 15,
+                change: function(event, ui) {
+                    knnChart.circleSize($(this).slider('values', 0));
+                    knnWrapper.datum(points).call(knnChart);
+                }
+            });
+        });
+
+        //Slider for number of points (https://jqueryui.com/slider/)
+        $(function() {
+            $("#knnNumPointsSlider").slider({
+                min: 3,
+                max: 200,
+                change: function(event, ui) {
+                    num = $(this).slider('values', 0)
+                    points = d3.range(num).map(function(d) {
+                        return [Math.random() * width, Math.random() * height];
+                    });
+                    knnWrapper.datum(points).call(knnChart);
+                }
+            });
+        });
+
+        //Slider for k value (https://jqueryui.com/slider/)
+        $(function() {
+            $("#knnKSlider").slider({
+                min: 1,
+                max: 25,
+                change: function(event, ui) {
+                    k = $(this).slider('values', 0);
+                    knnChart.k(k);
+                    knnWrapper.datum(points).call(knnChart);
+                    $("#kvalue").html("" + k);
+                }
+            });
+        });
+        //END KNN INITIALIZATION
+
 
     });
 
