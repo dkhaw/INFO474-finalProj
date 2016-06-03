@@ -54,6 +54,7 @@ div.row {
 div#toolbar {
   padding-left: 30em;
   padding-top: 2em;
+  width: inherit;
 }
 
 div#infoSection.col-md-6 {
@@ -112,6 +113,11 @@ a.scrollto:after {
    text-align: center;
    padding-bottom: 2em;
    margin-top: 7em;
+}
+
+div#footer {
+  color: white;
+  font-size: 13pt;
 }
 
 
