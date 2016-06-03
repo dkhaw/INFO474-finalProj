@@ -96,7 +96,6 @@ a.scrollto {
 a.scrollto:after {
     content: '';
     position: relative;
-    right: 25px;
     display: block;
     margin: 10px auto 0;
     width: 34px;
