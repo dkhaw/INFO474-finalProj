@@ -2,11 +2,117 @@
 
     $(document).ready(function() {
 
+        var width = 700;
+        var height = 400;
+        var num = 3;
+        var k = 1;
+
+        var initialCircles = [
+            { 'x': 175, 'y': 150, 'color': 'blue', 'lbl': 'Blue'},
+            { 'x': 525, 'y': 150, 'color': 'red', 'lbl': 'Red'}];    
+
+        svg = d3.select('#nnDiagram').append("svg");
+        svg = svg
+                .attr("width", width)
+                .attr("height", height);
+
+        var borderPath = svg.append("rect")
+            .attr("x", 0)
+            .attr("y", 0)
+            .attr("height", height)
+            .attr("width", width)
+            .style("stroke", 'black')
+            .style("fill", "none")
+            .style("stroke-width", 1);
+
+        //Select all points
+        var circles = svg.selectAll("circle")
+            .data(initialCircles)
+            .enter()
+            .append("circle")
+            .attr("class", "npoint")
+            .attr("cx", function (d) { return d.x; })
+            .attr("cy", function (d) { return d.y; })
+            .attr("r", 4)
+            .style("fill", function(d) { return d.color; });
+
+        var labels = svg.selectAll("lbl")
+            .data(initialCircles)
+            .enter()         
+            .append("text")
+            .attr("class", "lbl")
+            .attr("x", function (d) { return d.x; })
+            .attr("y", function (d) { return d.y - 6; })
+            .text(function(d){
+                return d.lbl;
+            });
+
+        // nnChart = nn().width(width).height(height);
+        // var nnWrapper = d3.select("#nnDiagram")
+        //       .call(nnChart);
+
+        $('#btn1').on("click", function() {
+            document.getElementById('part2').style.display = "inline";
+            document.getElementById('part1').style.opacity = '.3';
+            svg.append("circle")
+                .attr("class", "npoint")
+                .attr("id", 'newcircle')
+                .attr("cx", 250)
+                .attr("cy", 250)
+                .attr("r", 4)
+                .style("fill", 'white')
+                .style("stroke", 'black');
+            svg.append("text")
+                .attr("class", "lbl")
+                .attr('id', 'newlabel')
+                .attr("x", 250)
+                .attr("y", 250 - 6)
+                .text('?');
+        });
+
+        $('#btn2').on('click', function() {
+            document.getElementById('part3').style.display = "inline";
+            document.getElementById('part2').style.opacity = '.3';
+            document.getElementById('newcircle').style.fill = 'blue';
+            document.getElementById('newcircle').style.stroke = 'none';
+            document.getElementById('newlabel').innerHTML = 'Blue';
+        });
+
+        $('#btn3').on('click', function() {
+            document.getElementById('part4').style.display = "inline";
+            document.getElementById('part3').style.opacity = '.3';
+            document.getElementById('newcircle').style.display = 'none';
+            document.getElementById('newlabel').style.display = 'none';
+            svg.append("line")
+                .attr('x1', 350)
+                .attr('y1', 0)
+                .attr('x2', 350)
+                .attr('y2', 400)
+                .attr('stroke', 'gray')
+                .attr('stroke-width', 3)
+                .style("stroke-dasharray", ("3, 3"));
+
+            svg.append("rect")
+                .attr("x", 0)
+                .attr("y", 0)
+                .attr("height", height)
+                .attr("width", width / 2)
+                .style("fill", "blue")
+                .style("opacity", .1);
+
+            svg.append("rect")
+                .attr("x", width / 2)
+                .attr("y", 0)
+                .attr("height", height)
+                .attr("width", width)
+                .style("fill", "red")
+                .style("opacity", .1);
+        });
 
         //VORONOI INITIALIZATION
         var width = 700;
         var height = 400;
-        var num = 3;
+        var num = 5;
         var colors = ['rgb(255,0,0)', 'rgb(10,0,255)'];
         // var allColors = ['rgb(197,27,125)',
         //                 'rgb(127,188,65)',
@@ -33,7 +139,7 @@
                         'rgb(77,146,33)'];
 
 
-        var vertices = d3.range(3).map(function(d) {
+        var vertices = d3.range(num).map(function(d) {
             return [Math.random() * width, Math.random() * height];
         });
 
@@ -83,8 +189,8 @@
         //KNN INITIALIZATION
         var width = 700;
         var height = 400;
-        var num = 3;
-        var k = 1;
+        var num = 10;
+        var k = 3;
         var points = d3.range(num).map(function(d) {
             return [Math.random() * width, Math.random() * height];
         });

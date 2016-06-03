@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="nn.js"></script>
     <script src="http://students.washington.edu/kinders/i474/voronoi/voronoi.js"></script>
     <script src="http://students.washington.edu/kinders/i474/knn/knn.js"></script>
     <script src="https://code.jquery.com/jquery.min.js"></script>
@@ -21,11 +22,25 @@
               <h2>K-Nearest Neighbors (K-NN) is an algorithm used to classify data based on its 'nearest', or most similar, counterparts. In this interactive tutorial, we walk you through the basics of K-NN and demonstrate the logic behind it.</h2>
             </div>
     </header>
+    <section id="InfoAndGraph0">
+        <div class="container">
+        <div class="row">
+          <div id="infoSection" class="col-md-6">
+            <p id='part1'>Let's start with something small. We've got two points in the graph on the right. We have classified them as <span id='bluetext'>blue</span> and <span id='redtext'>red</span>. <button id='btn1'>OK, cool</button><p>
+            <p id='part2'>Now, let's say we have a new point to add to our dataset. We want to classify it based on the data that we already have. <button id='btn2'>Let's do it</button></p><br />
+            <p id='part3'>In this case, the nearest neighbor to our new point is the <span id='bluetext'>blue</span> point. Thus, we will classify this point as <span id='bluetext'>blue</span>. <button id='btn3'>Got it</button></p><br />
+            <p id='part4'>In fact - if we are classifying a point based only on our two original points, we can draw a line right down the middle. If the new point falls on the left side, we classify it as <span id='bluetext'>blue</span>. If it falls to the right, we classify it as <span id='redtext'>red</span>. This line is called the <strong>decision boundary</strong>.         
+          </div>
+          <h3>Starter Chart</h3>
+          <div id="nnDiagram" class="col-md-6"></div>
+          <div id="addPoint">
+          </div>
+    </section>
     <section id="InfoAndGraph">
       <div class="container">
       <div class="row">
           <div id="infoSection" class= "col-md-6">
-            The graph on the right contains two data points. These points can be classified based on color: pink and green. The green and pink shaded regions of the graph depict the areas where new points will be closer to the pink and green data points, respectively. If we wanted to classify a new data point, we would see if it falls in the pink or green area and classify it based on that. Now, let's say we have a third data point that is classified as yellow. We will define this new point with our cursor. When we move our yellow data point around the graph, the shaded regions shift to reflect the new location of this third point. If we were to now try to classify a new data point, we would do it based on these three shaded regions instead.<br />
+            In the previous section, we illustrated what a decision boundary looks like between two points. However, we will usually have datasets larger than this. The graph on the right contains five data points: four points plotted with the fifth being defined by your cursor. Each line on the graph represents a decision boundary. This type of graph is called a <strong>voronoi diagram</strong>. Move your cursor around the graph and note how the decision boundaries move with it. If we were to add a new point to our graph, we would classify it based on the corresponding point in the area it fell in. You can play around with the sliders and reshuffle the data to get a better understanding for how these decision boundaries are made.<br />
           </div>
           <div id="voronoiRow" class="textGraph">
             <h3>Voronoi Diagram</h3>
@@ -46,7 +61,7 @@
         <div class="container"
         <div class="row">
           <div id="infoSection" class="col-md-6">
-            Time to kick it up a notch. In this previous section, we classified our data based on a single nearest neighbor data point. Now, we are going to expand on this and classify new data points based on k-nearest neighbors, where k is equal to the number of data points used for the classification. We'll start with k value of 3. We have a new point in our data set that we want to classify. First, we locate the three data points that are closest to this new point. We then take a vote from these nearest neighbors to determine which class our new data point will fall in. In this case, two of the neighbors are orange and one is yellow. 2 > 1, thus, we will classify our new point as orange.
+            Time to kick it up a notch. In the previous section, we classified our data based on a single nearest neighbor data point. Now, we are going to expand on this and classify new data points based on <strong>k</strong>-nearest neighbors, where k is equal to the number of <em>neighbors</em> used for the classification. We'll start with a k value of 3. We have a new point in our data set that we want to classify: the green point. First, we locate the three data points that are closest to this new point. We then take a vote from these nearest neighbors to determine which class our new data point will fall in. Move our green point around by clicking on the graph to see who are his nearest neighbors.
           </div>
           <h3>K Nearest Neighbors</h3>
           <div id="knnDiagram" class="col-md-6"></div>
@@ -55,7 +70,7 @@
             <div id="knnCircleSizeSlider"></div>
             <span>Number of observations: </span>
             <div id="knnNumPointsSlider"></div>
-            <span>K:</span><span id="kvalue">1</span>
+            <span>K:</span><span id="kvalue">3</span>
             <div id="knnKSlider"></div>
             <button id="knnReshuffle">Reshuffle</button>
           </div>
