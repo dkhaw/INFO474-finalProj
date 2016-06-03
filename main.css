@@ -80,6 +80,7 @@ div#scrollDiv {
 }
 
 a.scrollto {
+    cursor: pointer;
     display: block;
     left: 45%;
     bottom: 10px;
