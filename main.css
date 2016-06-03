@@ -103,6 +103,7 @@ a.scrollto:after {
 
 p {
   color: white;
+  font-size: 13pt;
 }
 
 #voronoiCircleSizeSlider, #voronoiNumPointsSlider {
