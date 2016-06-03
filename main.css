@@ -91,7 +91,8 @@ a.scrollto {
     text-align: center;
     font-family: 'museo-sans-n9', 'museo-sans', sans-serif;
     text-decoration: none;
-    padding-top: 3em;
+    padding-top: 4em;
+    padding-bottom: 2em;
 }
 
 a.scrollto:after {
