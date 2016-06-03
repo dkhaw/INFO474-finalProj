@@ -47,6 +47,19 @@
                 return d.lbl;
             });
 
+
+        $("#scroll1").click(function() {
+            $('html,body').animate({
+                scrollTop: $(".InfoAndGraph").offset().top},
+                    'slow');
+        });
+
+        $("#scroll2").click(function() {
+            $('html,body').animate({
+                scrollTop: $(".InfoAndGraph2").offset().top},
+                    'slow');
+        });
+
         // nnChart = nn().width(width).height(height);
         // var nnWrapper = d3.select("#nnDiagram")
         //       .call(nnChart);
