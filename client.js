@@ -189,9 +189,9 @@
         //KNN INITIALIZATION
         var width = 700;
         var height = 400;
-        var num = 10;
+        var knnNum = 10;
         var k = 3;
-        var points = d3.range(num).map(function(d) {
+        var points = d3.range(knnNum).map(function(d) {
             return [Math.random() * width, Math.random() * height];
         });
 
@@ -201,7 +201,7 @@
               .call(knnChart);
 
         $("#knnReshuffle").on("click", function() {
-            points = d3.range(num).map(function(d) {
+            points = d3.range(knnNum).map(function(d) {
                 return [Math.random() * width, Math.random() * height];
             });
             knnWrapper.datum(points).call(knnChart);
@@ -225,8 +225,8 @@
                 min: 3,
                 max: 200,
                 change: function(event, ui) {
-                    num = $(this).slider('values', 0)
-                    points = d3.range(num).map(function(d) {
+                    knnNum = $(this).slider('values', 0)
+                    points = d3.range(knnNum).map(function(d) {
                         return [Math.random() * width, Math.random() * height];
                     });
                     knnWrapper.datum(points).call(knnChart);
