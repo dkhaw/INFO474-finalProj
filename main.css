@@ -47,8 +47,8 @@ h3 {
 }
 
 div.row {
-  padding-top: 3em;
-  padding-bottom: 2em;
+  padding-top: 4em;
+  padding-bottom: 3em;
 }
 
 div#toolbar {
@@ -91,6 +91,7 @@ a.scrollto {
     text-align: center;
     font-family: 'museo-sans-n9', 'museo-sans', sans-serif;
     text-decoration: none;
+    padding-top: 3em;
 }
 
 a.scrollto:after {
